@@ -1,0 +1,29 @@
+PIPELINE DEMAND FORECAST — 30/60 DAY PROJECTION
+==================================================
+
+METHOD
+Each forecasted month is projected as the trailing 3-month average of actual throughput. This is a moving-average forecast — it assumes the near-term future will resemble the recent past, and does not model trend, seasonality, or known planned events.
+
+FORECAST
+  April 2026: 97.21
+  May 2026: 97.21
+
+ASSUMPTIONS
+- Assumes no unplanned outages, apportionment events, or maintenance
+  windows beyond the pattern already reflected in the trailing average.
+- Assumes no material change in available capacity in the forecast window.
+- Does not account for seasonality; the dataset does not show a strong
+  consistent seasonal pattern, so none was modeled.
+
+RECENT VARIANCE CONTEXT (trailing 12 months of actuals)
+  Mean: 92.88
+  Std deviation: 7.31
+  Range: 70.86 to 99.44
+
+This range matters more than the single-point forecast above: the historical
+data shows the system can drop sharply (see Section 5.3 of the main analysis
+write-up) within a single month due to maintenance or apportionment events,
+recovering within 1-2 months. A single-point moving-average forecast will NOT
+predict when such an event occurs — it only reflects the recent steady-state.
+A realistic forecast range should widen by roughly one standard deviation
+in either direction to reflect this known volatility.
